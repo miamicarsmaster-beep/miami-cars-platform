@@ -213,7 +213,6 @@ export function VehiclesGrid({ vehicles: initialVehicles, investors }: VehiclesG
                                 setAdminVehicle(v)
                                 setShowAdminPanel(true)
                             }}
-                            onEdit={() => { }} // Not used currently as we use Manage
                         />
                     ))}
                 </div>
