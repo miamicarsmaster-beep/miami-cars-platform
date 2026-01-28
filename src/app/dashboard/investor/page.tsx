@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { DollarSign, Calendar, MapPin, Gauge } from "lucide-react"
+import { ImageWithFallback } from "@/components/ui/image-with-fallback"
 import { redirect } from "next/navigation"
 
 export default async function InvestorDashboardPage() {
@@ -128,13 +129,13 @@ export default async function InvestorDashboardPage() {
                     {vehicles.map((vehicle) => (
                         <Card key={vehicle.id} className="overflow-hidden border-border/60 shadow-sm hover:shadow-md transition-shadow">
                             <div className="aspect-video bg-zinc-100 dark:bg-zinc-800 relative">
-                                {vehicle.image_url ? (
-                                    <img src={vehicle.image_url} alt={`${vehicle.make} ${vehicle.model}`} className="object-cover w-full h-full" />
-                                ) : (
-                                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                                        [Foto del vehículo]
-                                    </div>
-                                )}
+                                <ImageWithFallback
+                                    src={vehicle.image_url || `https://source.unsplash.com/800x600/?${vehicle.make}+${vehicle.model},car`}
+                                    fallbackSrc={`https://source.unsplash.com/800x600/?car`}
+                                    alt={`${vehicle.make} ${vehicle.model}`}
+                                    fill
+                                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
                                 <div className="absolute top-2 right-2">
                                     {getStatusBadge(vehicle.status)}
                                 </div>

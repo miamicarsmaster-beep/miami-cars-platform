@@ -36,8 +36,8 @@ export default async function InvestorsPage() {
                 </CardHeader>
                 <CardContent className="text-sm text-muted-foreground space-y-2">
                     <p>1. Ve a <strong>Supabase Dashboard → Authentication → Users</strong></p>
-                    <p>2. Click en <strong>"Add User"</strong> y crea el usuario con email y contraseña</p>
-                    <p>3. El perfil se creará automáticamente con rol "investor"</p>
+                    <p>2. Click en <strong>&quot;Add User&quot;</strong> y crea el usuario con email y contraseña</p>
+                    <p>3. El perfil se creará automáticamente con rol &quot;investor&quot;</p>
                     <p>4. Regresa aquí para editar su información y asignarle vehículos</p>
                 </CardContent>
             </Card>

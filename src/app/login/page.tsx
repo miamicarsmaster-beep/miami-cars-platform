@@ -60,9 +60,10 @@ export default function LoginPage() {
             }
 
             router.refresh()
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error('Login error:', err)
-            setError(err?.message || 'Error al iniciar sesión. Por favor intenta nuevamente.')
+            const errorMessage = err instanceof Error ? err.message : 'Error al iniciar sesión. Por favor intenta nuevamente.'
+            setError(errorMessage)
         } finally {
             setIsLoading(false)
         }

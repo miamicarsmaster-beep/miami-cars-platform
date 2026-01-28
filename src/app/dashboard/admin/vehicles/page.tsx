@@ -1,7 +1,7 @@
 import { getVehicles } from "@/lib/data/vehicles"
 import { getInvestors } from "@/lib/data/profiles"
 import { VehiclesGrid } from "@/components/dashboard/VehiclesTable"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
 
 export default async function VehiclesPage() {
     const [vehicles, investors] = await Promise.all([
