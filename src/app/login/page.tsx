@@ -52,14 +52,15 @@ export default function LoginPage() {
                 throw new Error('No se encontró el perfil del usuario')
             }
 
+            // Refresh router to ensure middleware sees the new session
+            router.refresh()
+
             // Redirect based on role
             if (profile.role === 'admin') {
                 router.push('/dashboard/admin')
             } else {
                 router.push('/dashboard/investor')
             }
-
-            router.refresh()
         } catch (err: unknown) {
             console.error('Login error:', err)
             const errorMessage = err instanceof Error ? err.message : 'Error al iniciar sesión. Por favor intenta nuevamente.'
